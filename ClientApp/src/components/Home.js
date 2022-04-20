@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-
+import Button from '@mui/material/Button';
 export class Home extends Component {
   static displayName = Home.name;
 
   render () {
     return (
       <div>
+        <Button variant='contained'>Test BTN</Button>
         <h1>Hello, world!</h1>
         <p>Welcome to your new single-page application, built with:</p>
         <ul>
