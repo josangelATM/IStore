@@ -96,7 +96,7 @@ const NavBar = () =>{
                 p: 3,
             }}
             >
-            <IconButton sx={{ ml: 1 }} color="inherit">
+            <IconButton sx={{ ml: 1}} color="inherit">
                 {'dark' === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
             </IconButton>
             </Box>

@@ -12,3 +12,10 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+button:focus, 
+button:active:focus, 
+button.active:focus {
+    outline: none !important;
+    outline-style: none !important;
+}
