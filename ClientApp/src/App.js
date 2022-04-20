@@ -5,28 +5,28 @@ import { Home } from './components/Home';
 import { FetchData } from './components/FetchData';
 import { Counter } from './components/Counter';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-
 import './custom.css'
+import { useSelector } from 'react-redux';
 
-const darkTheme = createTheme({ //Here logic about theme
+function App() {
+  const theme = useSelector(state => state.theme.theme)
+
+  const darkTheme = createTheme({ //Here logic about theme
   palette: {
-    mode: 'light',
+    mode: theme,
   },
-});
+  });
 
-export default class App extends Component {
-  static displayName = App.name;
-
-  render () {
-    return (
-      <ThemeProvider theme={darkTheme}>
+  return(
+    <ThemeProvider theme={darkTheme}>
         <Layout>
         <Route exact path='/' component={Home} />
         <Route path='/counter' component={Counter} />
         <Route path='/fetch-data' component={FetchData} />
       </Layout>
       </ThemeProvider>
-      
-    );
-  }
+  )
 }
+
+
+export default App;

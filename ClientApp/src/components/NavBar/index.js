@@ -5,10 +5,12 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import React, { useState } from "react";
 import { Container } from "reactstrap";
 import {Link} from "react-router-dom"
-
+import { useDispatch } from 'react-redux'
+import { setTheme } from '../../store/actions/index'
 const pages = ['counter', 'fetch-data'];
 
 const NavBar = () =>{
+    const dispatch = useDispatch()
     const [anchorElNav, setAnchorElNav] = useState(null)
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -17,6 +19,10 @@ const NavBar = () =>{
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
       };
+
+    const handleThemeChange = () => {
+      dispatch(setTheme())
+    }
 
     return(
         <AppBar position="static">
@@ -96,7 +102,7 @@ const NavBar = () =>{
                 p: 3,
             }}
             >
-            <IconButton sx={{ ml: 1}} color="inherit">
+            <IconButton sx={{ ml: 1}} color="inherit" onClick={handleThemeChange}>
                 {'dark' === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
             </IconButton>
             </Box>
