@@ -13,12 +13,34 @@ function App() {
 
   const darkTheme = createTheme({ //Here logic about theme
   palette: {
-    mode: theme,
+      primary:{
+        main:'#000000'
+      },
+      secondary:{
+        main:'#FFFFFF'
+      },
+      warning:{
+        main:'#FF0000'
+      }
   },
   });
 
+  const lightTheme = createTheme({
+    palette:{
+      primary:{
+        main:'#FFFFFF'
+      },
+      secondary:{
+        main:'#000000'
+      },
+      warning:{
+        main:'#FF0000'
+      }
+    }
+  })
+
   return(
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme == 'light' ? lightTheme : darkTheme}>
         <Layout>
         <Route exact path='/' component={Home} />
         <Route path='/counter' component={Counter} />

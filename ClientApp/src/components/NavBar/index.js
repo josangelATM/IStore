@@ -7,9 +7,14 @@ import { Container } from "reactstrap";
 import {Link} from "react-router-dom"
 import { useDispatch } from 'react-redux'
 import { setTheme } from '../../store/actions/index'
-const pages = ['counter', 'fetch-data'];
+import TextField from '@mui/material/TextField';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import { useSelector } from 'react-redux';
+
+const pages = ['Home', 'Últimos productos','Libros','Juegos','Hogar'];
 
 const NavBar = () =>{
+    const theme = useSelector(state => state.theme.theme)
     const dispatch = useDispatch()
     const [anchorElNav, setAnchorElNav] = useState(null)
     const handleOpenNavMenu = (event) => {
@@ -25,8 +30,8 @@ const NavBar = () =>{
     }
 
     return(
-        <AppBar position="static">
-        <Container maxWidth="xl">
+        <AppBar position="static" color="primary">
+        <Container maxWidth="xl" fluid>
         <Toolbar disableGutters>
           <Typography
             variant="h6"
@@ -62,12 +67,12 @@ const NavBar = () =>{
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: 'block', md: 'none' }
               }}
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center" >{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -84,7 +89,7 @@ const NavBar = () =>{
             {pages.map((page) => (
               <Button
                 key={page}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 0, color: 'inherit', display: 'block' }}
                 LinkComponent={Link}
                 to={`/${page}`}
               >
@@ -92,20 +97,28 @@ const NavBar = () =>{
               </Button>
             ))}
           </Box>
+          <Box sx={{ display: {xs:'none', md:'flex'}, alignItems: 'flex-end' }}>
+            <AccountCircle sx={{ color: 'primary', mr: 1, my: 0.5 }} />
+            <TextField id="input-with-sx" color='secondary' label="Buscar..." variant="standard" sx={{
+              input:'red'
+            }}/>
+          </Box>
           <Box
             sx={{
                 display: 'flex',
-                width: '20%',
+                width: '10%',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: 'text.primary',
-                p: 3,
+                p: 1,
             }}
-            >
+          >
             <IconButton sx={{ ml: 1}} color="inherit" onClick={handleThemeChange}>
-                {'dark' === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+                {theme === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
             </IconButton>
-            </Box>
+            <IconButton sx={{ ml: 1}} color="inherit">
+                <Brightness7Icon /> 
+            </IconButton>
+          </Box>
         </Toolbar>
       </Container>
     </AppBar>
