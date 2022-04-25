@@ -14,7 +14,7 @@ import { useTranslation } from 'react-i18next'
 const pages = ['Home', 'Últimos productos','Libros','Juegos','Hogar'];
 
 const NavBar = () =>{
-    const { t, i18n } = useTranslation();
+    const { t, i18n } = useTranslation('common');
     const theme = useSelector(state => state.theme.theme)
     const dispatch = useDispatch()
     const [anchorElNav, setAnchorElNav] = useState(null)
@@ -40,7 +40,7 @@ const NavBar = () =>{
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            {t('LOGO')}
+            LOGO
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -71,11 +71,9 @@ const NavBar = () =>{
                 display: { xs: 'block', md: 'none' }
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" >{page}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center" >{t('navbar.home')}</Typography>
+              </MenuItem>
             </Menu>
           </Box>
           <Typography
@@ -87,16 +85,20 @@ const NavBar = () =>{
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                sx={{ my: 0, color: 'inherit', display: 'block' }}
-                LinkComponent={Link}
-                to={`/${page}`}
-              >
-                  {t(page)}
-              </Button>
-            ))}
+            <Button
+              sx={{ my: 0, color: 'inherit', display: 'block' }}
+              LinkComponent={Link}
+              to={`/home`}
+            >
+                {t('navbar.home')}
+            </Button>
+            <Button
+              sx={{ my: 0, color: 'inherit', display: 'block' }}
+              LinkComponent={Link}
+              to={`/home`}
+            >
+                {t('navbar.lastest')}
+            </Button>
           </Box>
           <Box sx={{ display: {xs:'none', md:'flex'}, alignItems: 'flex-end' }}>
             <AccountCircle sx={{ color: 'primary', mr: 1, my: 0.5 }} />
