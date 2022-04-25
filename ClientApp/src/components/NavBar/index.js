@@ -4,16 +4,17 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import React, { useState } from "react";
 import { Container } from "reactstrap";
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
 import { useDispatch } from 'react-redux'
 import { setTheme } from '../../store/actions/index'
 import TextField from '@mui/material/TextField';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { useSelector } from 'react-redux';
-
+import { useTranslation } from 'react-i18next'
 const pages = ['Home', 'Últimos productos','Libros','Juegos','Hogar'];
 
 const NavBar = () =>{
+    const { t, i18n } = useTranslation();
     const theme = useSelector(state => state.theme.theme)
     const dispatch = useDispatch()
     const [anchorElNav, setAnchorElNav] = useState(null)
@@ -39,7 +40,7 @@ const NavBar = () =>{
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            LOGO
+            {t('LOGO')}
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -93,7 +94,7 @@ const NavBar = () =>{
                 LinkComponent={Link}
                 to={`/${page}`}
               >
-                  {page}
+                  {t(page)}
               </Button>
             ))}
           </Box>

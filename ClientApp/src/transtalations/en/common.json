@@ -1,0 +1,10 @@
+{
+    "navbar":{
+        "home" : "Home",
+        "lastest": "Latest products",
+        "books":"Books",
+        "games":"Games",
+        "garden":"Garden"
+    }
+
+}

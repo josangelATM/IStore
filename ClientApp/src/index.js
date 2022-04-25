@@ -7,6 +7,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import ThemeReducer from './store/reducers/ThemeReducer';
+import './i18n';
 
 const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
 const rootElement = document.getElementById('root');
