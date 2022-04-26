@@ -3,15 +3,14 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import React, { useState } from "react";
-import { Container } from "reactstrap";
+import Container from '@mui/material/Container';
 import {Link} from "react-router-dom";
 import { useDispatch } from 'react-redux'
 import { setTheme } from '../../store/actions/index'
 import TextField from '@mui/material/TextField';
-import AccountCircle from '@mui/icons-material/AccountCircle';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next'
-const pages = ['Home', 'Últimos productos','Libros','Juegos','Hogar'];
+import SearchIcon from '@mui/icons-material/Search';
 
 const NavBar = () =>{
     const { t, i18n } = useTranslation('common');
@@ -44,11 +43,8 @@ const NavBar = () =>{
       i18n.changeLanguage(lng);
       handleClose();
     }    
-
-
-
     return(
-        <AppBar position="static" color="primary">
+        <AppBar position="sticky" color="primary" sx={{ mb : 5}}>
         <Container maxWidth="xl" fluid>
         <Toolbar disableGutters>
           <Typography
@@ -112,14 +108,35 @@ const NavBar = () =>{
             <Button
               sx={{color: 'inherit', display: 'block' }}
               LinkComponent={Link}
-              to={`/home`}
+              to={`/products`}
             >
                 {t('navbar.lastest')}
             </Button>
+            <Button
+              sx={{ my: 0, color: 'inherit', display: 'block' }}
+              LinkComponent={Link}
+              to={`/home`}
+            >
+                {t('navbar.books')}
+            </Button>
+            <Button
+              sx={{color: 'inherit', display: 'block' }}
+              LinkComponent={Link}
+              to={`/home`}
+            >
+                {t('navbar.garden')}
+            </Button>
+            <Button
+              sx={{color: 'inherit', display: 'block' }}
+              LinkComponent={Link}
+              to={`/home`}
+            >
+                {t('navbar.games')}
+            </Button>
           </Box>
           <Box sx={{ display: {xs:'none', md:'flex'}, alignItems: 'flex-end' }}>
-            <AccountCircle sx={{ color: 'primary', mr: 1, my: 0.5 }} />
-            <TextField id="input-with-sx" color='secondary' label="Buscar..." variant="standard" sx={{
+            <SearchIcon sx={{ color: 'primary', mr: 1, my: 0.5 }} />
+            <TextField id="input-with-sx" color='secondary' label={t('navbar.search')} variant="standard" sx={{
               input:'red'
             }}/>
           </Box>

@@ -19,3 +19,8 @@ button.active:focus {
     outline: none !important;
     outline-style: none !important;
 }
+
+.layout {
+  display: flex;
+  flex-direction: column;
+}

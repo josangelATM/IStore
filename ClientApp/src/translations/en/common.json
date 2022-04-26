@@ -5,6 +5,7 @@
         "books":"Books",
         "games":"Games",
         "garden":"Garden",
-        "language":"Language"
+        "language":"Language",
+        "search":"Search..."
     }
 }

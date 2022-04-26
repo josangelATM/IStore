@@ -1,5 +1,6 @@
+import { Box, Container } from '@mui/material';
 import React, { Component } from 'react';
-import { Container } from 'reactstrap';
+
 import NavBar from './NavBar';
 
 export class Layout extends Component {
@@ -7,12 +8,12 @@ export class Layout extends Component {
 
   render () {
     return (
-      <div>
+      <Box bgcolor={'primary.bodyBg'}>
         <NavBar/>
-        <Container>
+        <Container maxWidth={false}>
           {this.props.children}
         </Container>
-      </div>
+      </Box>
     );
   }
 }

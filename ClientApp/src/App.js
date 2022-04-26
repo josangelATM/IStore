@@ -7,13 +7,15 @@ import { Counter } from './components/Counter';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import './custom.css'
 import { useSelector } from 'react-redux';
+import Products from './Pages/Products/index'
 
 const App = () => {
   const theme = useSelector(state => state.theme.theme)
   const darkTheme = createTheme({ //Here logic about theme
   palette: {
       primary:{
-        main:'#000000'
+        main:'#171717',
+        bodyBg:'#202124'
       },
       secondary:{
         main:'#FFFFFF'
@@ -27,10 +29,11 @@ const App = () => {
   const lightTheme = createTheme({
     palette:{
       primary:{
-        main:'#FFFFFF'
+        main:'#FFFFFF',
+        bodyBg:'#FFFFFF'
       },
       secondary:{
-        main:'#000000'
+        main:'#171717'
       },
       warning:{
         main:'#FF0000'
@@ -41,11 +44,12 @@ const App = () => {
   return(
     <Suspense fallback="loading">
       <ThemeProvider theme={theme == 'light' ? lightTheme : darkTheme}>
-        <Layout>
-        <Route exact path='/' component={Home} />
-        <Route path='/counter' component={Counter} />
-        <Route path='/fetch-data' component={FetchData} />
-      </Layout>
+        <Layout >
+          <Route exact path='/' component={Home} />
+          <Route path='/counter' component={Counter} />
+          <Route path='/fetch-data' component={FetchData} />
+          <Route path='/products' component={Products}/>
+        </Layout>
       </ThemeProvider>
     </Suspense>
     
