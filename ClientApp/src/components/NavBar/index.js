@@ -18,6 +18,16 @@ const NavBar = () =>{
     const theme = useSelector(state => state.theme.theme)
     const dispatch = useDispatch()
     const [anchorElNav, setAnchorElNav] = useState(null)
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+
+    const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
       };
@@ -29,6 +39,13 @@ const NavBar = () =>{
     const handleThemeChange = () => {
       dispatch(setTheme())
     }
+
+    const handleChangeLanguage = (lng) => {
+      i18n.changeLanguage(lng);
+      handleClose();
+    }    
+
+
 
     return(
         <AppBar position="static" color="primary">
@@ -93,7 +110,7 @@ const NavBar = () =>{
                 {t('navbar.home')}
             </Button>
             <Button
-              sx={{ my: 0, color: 'inherit', display: 'block' }}
+              sx={{color: 'inherit', display: 'block' }}
               LinkComponent={Link}
               to={`/home`}
             >
@@ -109,18 +126,42 @@ const NavBar = () =>{
           <Box
             sx={{
                 display: 'flex',
-                width: '10%',
+                width: '8%',
                 alignItems: 'center',
-                justifyContent: 'center',
-                p: 1,
+                justifyContent: 'center'
             }}
           >
             <IconButton sx={{ ml: 1}} color="inherit" onClick={handleThemeChange}>
                 {theme === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
             </IconButton>
-            <IconButton sx={{ ml: 1}} color="inherit">
-                <Brightness7Icon /> 
-            </IconButton>
+          </Box>
+          <Box 
+          sx={{
+            mr:2
+          }}
+          >
+            <Button
+            id="basic-button"
+            aria-controls={open ? 'basic-menu' : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? 'true' : undefined}
+            onClick={handleClick}
+            color="inherit"
+            >
+            {t('navbar.language')}
+            </Button>
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                'aria-labelledby': 'basic-button',
+              }}
+            >
+              <MenuItem onClick={() => handleChangeLanguage('es')}>Español</MenuItem>
+              <MenuItem onClick={() => handleChangeLanguage('en')}>English</MenuItem>
+            </Menu>
           </Box>
         </Toolbar>
       </Container>
