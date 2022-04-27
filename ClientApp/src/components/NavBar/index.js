@@ -115,7 +115,7 @@ const NavBar = () =>{
             <Button
               sx={{ my: 0, color: 'inherit', display: 'block' }}
               LinkComponent={Link}
-              to={`/home`}
+              to={`/product`}
             >
                 {t('navbar.books')}
             </Button>

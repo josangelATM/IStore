@@ -1,5 +1,6 @@
 import { Box, Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
 import React from "react";
+import ProductCounter from "../ProductCounter";
 
 const ProductItem = () =>{
 
@@ -11,7 +12,9 @@ const ProductItem = () =>{
                 image="https://source.unsplash.com/random/300×300"
                 alt="green iguana"
             />
-            <CardContent>
+            <CardContent sx={{
+                textAlign:'center'
+            }}>
                 <Typography gutterBottom variant="h5" component="div">
                 Lizard
                 </Typography>
@@ -24,7 +27,7 @@ const ProductItem = () =>{
                 display:'flex',
                 justifyContent:'center'
             }}>
-                <Button size="small" color='secondary' variant='contained'>Share</Button>
+                <ProductCounter/>
                 <Button size="small" color='secondary' variant='contained'>Share</Button>
             </CardActions>
     </Card>

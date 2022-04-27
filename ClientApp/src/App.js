@@ -8,6 +8,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import './custom.css'
 import { useSelector } from 'react-redux';
 import Products from './Pages/Products/index'
+import ProductViewer from './components/ProductViewer/ProductViewer';
 
 const App = () => {
   const theme = useSelector(state => state.theme.theme)
@@ -46,7 +47,7 @@ const App = () => {
       <ThemeProvider theme={theme == 'light' ? lightTheme : darkTheme}>
         <Layout >
           <Route exact path='/' component={Home} />
-          <Route path='/counter' component={Counter} />
+          <Route path='/product' component={ProductViewer} />
           <Route path='/fetch-data' component={FetchData} />
           <Route path='/products' component={Products}/>
         </Layout>
