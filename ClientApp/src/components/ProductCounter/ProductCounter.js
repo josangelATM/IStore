@@ -9,7 +9,6 @@ const ProductCounter = ({getCounterValue}) =>{
 
     const handleChangeText = (value) =>{
         if(value=>0){
-            console.log(value)
             setCounter(value)
         }
     }

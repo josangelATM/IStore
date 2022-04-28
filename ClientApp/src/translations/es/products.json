@@ -1,0 +1,15 @@
+{
+    "cart":{
+        "addToCart" : "Agregar al carrito"
+    },
+    "items":{
+        "available" : "Disponible",
+        "code" : "Código",
+        "category" : "Categoría",
+        "type" : "Tipo de producto"
+    },
+    "tabs":{
+        "description":"Descripción",
+        "reviews":"Reseñas"
+    }
+}

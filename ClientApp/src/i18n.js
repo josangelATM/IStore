@@ -2,6 +2,8 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import common_es from "./translations/es/common.json";
 import common_en from "./translations/en/common.json";
+import products_es from "./translations/es/products.json";
+import products_en from "./translations/en/products.json";
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 // don't want to use this?
@@ -25,10 +27,12 @@ i18n
     debug: true,
     resources:{
       en:{
-        common: common_en
+        common: common_en,
+        products: products_en
       },
       es:{
-        common: common_es
+        common: common_es,
+        products: products_es
       }
     },
     interpolation: {

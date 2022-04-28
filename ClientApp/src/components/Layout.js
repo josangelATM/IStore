@@ -8,9 +8,11 @@ export class Layout extends Component {
 
   render () {
     return (
-      <Box bgcolor={'primary.bodyBg'}>
+      <Box bgcolor={'primary.bodyBg'} minHeight={'100vh'}>
         <NavBar/>
-        <Container maxWidth={false}>
+        <Container maxWidth={false} sx={{
+          width:'fit-content'
+        }}>
           {this.props.children}
         </Container>
       </Box>

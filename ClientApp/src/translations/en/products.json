@@ -1,0 +1,15 @@
+{
+    "cart":{
+        "addToCart" : "Add to cart"
+    },
+    "items":{
+        "available" : "Available",
+        "code": "Product code",
+        "category" : "Category",
+        "type" : "Product type"
+    },
+    "tabs":{
+        "description":"Description",
+        "reviews":"Reviews"
+    }
+}

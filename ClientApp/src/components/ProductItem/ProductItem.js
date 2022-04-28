@@ -1,10 +1,11 @@
 import { Box, Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import ProductCounter from "../ProductCounter/ProductCounter";
 
 const ProductItem = () =>{
     const [productCounter,setProductCounter] = useState(1)
-
+    const { t, i18n } = useTranslation('products');
     const getCounterValue = value => setProductCounter(value)
 
     return(
@@ -28,12 +29,15 @@ const ProductItem = () =>{
             </CardContent>
             <CardActions sx={{
                 display:'flex',
-                justifyContent:'center'
+                flexDirection:'column',
+                justifyContent:'center',
             }}>
                 <ProductCounter getCounterValue={getCounterValue}/>
-                <Button size="small" color='secondary' variant='contained'>Share</Button>
+                <Button size="small" color='secondary' variant='contained' sx={{
+                    mt:2
+                }}>{t('cart.addToCart')}</Button>
             </CardActions>
-    </Card>
+        </Card>
     )
 }
 
