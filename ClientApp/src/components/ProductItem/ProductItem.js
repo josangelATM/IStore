@@ -1,8 +1,11 @@
 import { Box, Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
-import React from "react";
-import ProductCounter from "../ProductCounter";
+import React, { useState } from "react";
+import ProductCounter from "../ProductCounter/ProductCounter";
 
 const ProductItem = () =>{
+    const [productCounter,setProductCounter] = useState(1)
+
+    const getCounterValue = value => setProductCounter(value)
 
     return(
         <Card>
@@ -27,7 +30,7 @@ const ProductItem = () =>{
                 display:'flex',
                 justifyContent:'center'
             }}>
-                <ProductCounter/>
+                <ProductCounter getCounterValue={getCounterValue}/>
                 <Button size="small" color='secondary' variant='contained'>Share</Button>
             </CardActions>
     </Card>

@@ -1,5 +1,5 @@
 import { Box, Container } from "@mui/material";
-import ProductsViewer from '../../components/ProductsViewer/index'
+import ProductsViewer from '../../components/ProductsViewer/ProductsViewer'
 import React from "react";
 
 const Products = () => {

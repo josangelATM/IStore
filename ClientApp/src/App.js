@@ -3,11 +3,10 @@ import { Route } from 'react-router';
 import { Layout } from './components/Layout';
 import { Home } from './components/Home';
 import { FetchData } from './components/FetchData';
-import { Counter } from './components/Counter';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import './custom.css'
 import { useSelector } from 'react-redux';
-import Products from './Pages/Products/index'
+import Products from './Pages/Products/Products'
 import ProductViewer from './components/ProductViewer/ProductViewer';
 
 const App = () => {
